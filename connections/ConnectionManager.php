@@ -139,11 +139,11 @@ class ConnectionManager extends ConnectionManager_Base
 $host="STORAGEADJUNTOS";
 $user="DoxaSeg";
 $pwd="DoxaSistemasLtda";
-$dbname="DxTDatos";
-$ODBCString = "Provider=SQLNCLI;Server=STORAGEADJUNTOS;Uid=DoxaSeg;Pwd=DoxaSistemasLtda;Database=DxTDatos";
+$dbname="Taller_Pedidos";
+$ODBCString = "Provider=SQLNCLI;Server=STORAGEADJUNTOS;Uid=DoxaSeg;Pwd=DoxaSistemasLtda;Database=Taller_Pedidos";
 unset($_SESSION['entorno']);
-if(file_exists('./dxtdatos/config_db.php'))
-  include './dxtdatos/config_db.php';
+if(file_exists('./TallerPedidos/config_db.php'))
+  include './TallerPedidos/config_db.php';
 $_SESSION["bdatosactual"]= $sys_dbname;
 $data["connInfo"][0] = $host;
 $data["connInfo"][1] = $user;

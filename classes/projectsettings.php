@@ -3577,6 +3577,8 @@ function fillProjectEntites()
 	$projectEntitiesReverse[ "pedidos" ] = "dbo.pedidos";
 	$projectEntities[ "dbo.Productos" ] = array( "url" => "productos", "type" => 0 );
 	$projectEntitiesReverse[ "productos" ] = "dbo.Productos";
+	$projectEntities[ "dbo.VE_PEDIDOS" ] = array( "url" => "ve_pedidos", "type" => 0 );
+	$projectEntitiesReverse[ "ve_pedidos" ] = "dbo.VE_PEDIDOS";
 }
 
 function findTable( $table ) {

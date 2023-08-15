@@ -203,6 +203,28 @@
 </div>
 
 {END rgsmrc_fieldblock}
+											
+{BEGIN Cantidad_fieldblock}
+
+<div class="r-integrated-field form-group clearfix {$fielddispclass_Cantidad}  r-horizontal-field form-horizontal" 	
+	data-signal-error-for="Cantidad{$id}" 
+	data-itemtype="integrated_search_field" data-itemid="integrated_search_field5" {$item_integrated_search_field5} data-pageid="{$pageid}" data-field="Cantidad" data-fieldname="Cantidad" >
+
+
+	<label class="r-search-label control-label" for="{$labelfor_Cantidad}">
+		{$label dbo_Productos Cantidad }	</label>
+	<div class="r-search-option">
+		{$searchtype_Cantidad}
+	</div>
+	<div class="r-search-field">
+		{$Cantidad_editcontrol}	</div>
+	<div class="r-search-field">
+		{$Cantidad_editcontrol1}
+	</div>
+	
+</div>
+
+{END Cantidad_fieldblock}
 	
 								</td>
 			{END cellblock_grid_c3}

@@ -356,6 +356,8 @@ class DB
 		{
 			$dalTables[$conn->connId][] = array("name" => "pedidos", "varname" => "TallerPedidosatTHINKPADIDBDXSQ_dbo_pedidos", "altvarname" => "pedidos", "connId" => "TallerPedidosatTHINKPADIDBDXSQ", "schema" => "dbo", "connName" => "Taller_Pedidos at THINKPAD-IDB");
 			$dalTables[$conn->connId][] = array("name" => "Productos", "varname" => "TallerPedidosatTHINKPADIDBDXSQ_dbo_Productos", "altvarname" => "Productos", "connId" => "TallerPedidosatTHINKPADIDBDXSQ", "schema" => "dbo", "connName" => "Taller_Pedidos at THINKPAD-IDB");
+			$dalTables[$conn->connId][] = array("name" => "VE_PEDIDOR", "varname" => "TallerPedidosatTHINKPADIDBDXSQ_dbo_VE_PEDIDOR", "altvarname" => "VE_PEDIDOR", "connId" => "TallerPedidosatTHINKPADIDBDXSQ", "schema" => "dbo", "connName" => "Taller_Pedidos at THINKPAD-IDB");
+			$dalTables[$conn->connId][] = array("name" => "VE_PEDIDOS", "varname" => "TallerPedidosatTHINKPADIDBDXSQ_dbo_VE_PEDIDOS", "altvarname" => "VE_PEDIDOS", "connId" => "TallerPedidosatTHINKPADIDBDXSQ", "schema" => "dbo", "connName" => "Taller_Pedidos at THINKPAD-IDB");
 		}
 	}
 

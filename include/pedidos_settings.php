@@ -6,11 +6,11 @@ $tdatapedidos[".OwnerID"] = "";
 $tdatapedidos[".OriginalTable"] = "dbo.pedidos";
 
 
-$tdatapedidos[".pagesByType"] = my_json_decode( "{\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"]}" );
+$tdatapedidos[".pagesByType"] = my_json_decode( "{\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" );
 $tdatapedidos[".originalPagesByType"] = $tdatapedidos[".pagesByType"];
-$tdatapedidos[".pages"] = types2pages( my_json_decode( "{\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"print\":[\"print\"],\"search\":[\"search\"]}" ) );
+$tdatapedidos[".pages"] = types2pages( my_json_decode( "{\"edit\":[\"edit\"],\"list\":[\"list\"],\"search\":[\"search\"]}" ) );
 $tdatapedidos[".originalPages"] = $tdatapedidos[".pages"];
-$tdatapedidos[".defaultPages"] = my_json_decode( "{\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"print\":\"print\",\"search\":\"search\"}" );
+$tdatapedidos[".defaultPages"] = my_json_decode( "{\"edit\":\"edit\",\"list\":\"list\",\"search\":\"search\"}" );
 $tdatapedidos[".originalDefaultPages"] = $tdatapedidos[".defaultPages"];
 
 //	field labels
@@ -85,9 +85,9 @@ $pages = $tdatapedidos[".defaultPages"];
 
 if( $pages[PAGE_EDIT] ) {
 	$tdatapedidos[".edit"] = true;
-	$tdatapedidos[".afterEditAction"] = 1;
+	$tdatapedidos[".afterEditAction"] = 0;
 	$tdatapedidos[".closePopupAfterEdit"] = 1;
-	$tdatapedidos[".afterEditActionDetTable"] = "";
+	$tdatapedidos[".afterEditActionDetTable"] = "Detail tables not found!";
 }
 
 if( $pages[PAGE_ADD] ) {
@@ -140,13 +140,13 @@ $tdatapedidos[".isUseAjaxSuggest"] = true;
 
 
 
-
+																																										
 
 $tdatapedidos[".ajaxCodeSnippetAdded"] = false;
 
 $tdatapedidos[".buttonsAdded"] = false;
 
-$tdatapedidos[".addPageEvents"] = false;
+$tdatapedidos[".addPageEvents"] = true;
 
 // use timepicker for search panel
 $tdatapedidos[".isUseTimeForSearch"] = false;
@@ -204,6 +204,17 @@ $tdatapedidos[".sqlFrom"] = "FROM dbo.pedidos";
 $tdatapedidos[".sqlWhereExpr"] = "";
 $tdatapedidos[".sqlTail"] = "";
 
+//fill array of tabs for list page
+$arrGridTabs = array();
+$arrGridTabs[] = array(
+	'tabId' => "",
+	'name' => "All data",
+	'nameType' => 'Text',
+	'where' => "",
+	'showRowCount' => 0,
+	'hideEmpty' => 0,
+);
+$tdatapedidos[".arrGridTabs"] = $arrGridTabs;
 
 
 
@@ -238,6 +249,7 @@ $tdatapedidos[".arrGroupsPerPage"] = $arrGPP;
 $tdatapedidos[".highlightSearchResults"] = true;
 
 $tableKeyspedidos = array();
+$tableKeyspedidos[] = "id";
 $tdatapedidos[".Keys"] = $tableKeyspedidos;
 
 
@@ -1331,6 +1343,7 @@ $tdatapedidos[".sqlquery"] = $queryData_pedidos;
 
 
 
-$tdatapedidos[".hasEvents"] = false;
+include_once(getabspath("include/pedidos_events.php"));
+$tdatapedidos[".hasEvents"] = true;
 
 ?>

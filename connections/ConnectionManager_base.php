@@ -245,6 +245,7 @@ class ConnectionManager_Base
 		$connectionsIds = array();
 		$connectionsIds["dbo.pedidos"] = "TallerPedidosatTHINKPADIDBDXSQ";
 		$connectionsIds["dbo.Productos"] = "TallerPedidosatTHINKPADIDBDXSQ";
+		$connectionsIds["dbo.VE_PEDIDOS"] = "TallerPedidosatTHINKPADIDBDXSQ";
 
 		$this->_tablesConnectionIds = &$connectionsIds;
 	}

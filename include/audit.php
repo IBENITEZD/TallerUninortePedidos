@@ -364,6 +364,10 @@ class AuditTrailTable
 		{
 			return false;
 		}
+		if($table=="dbo.VE_PEDIDOS")
+		{
+			return false;
+		}
 	}
 
 	protected function insert($datetime, $ip, $user, $table, $action, $description)
@@ -677,6 +681,10 @@ class AuditTrailFile
 			return false;
 		}
 		if($table=="dbo.Productos")
+		{
+			return false;
+		}
+		if($table=="dbo.VE_PEDIDOS")
 		{
 			return false;
 		}

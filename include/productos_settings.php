@@ -6,11 +6,11 @@ $tdataproductos[".OwnerID"] = "";
 $tdataproductos[".OriginalTable"] = "dbo.Productos";
 
 
-$tdataproductos[".pagesByType"] = my_json_decode( "{\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"print\":[\"print\"],\"search\":[\"search\"]}" );
+$tdataproductos[".pagesByType"] = my_json_decode( "{\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" );
 $tdataproductos[".originalPagesByType"] = $tdataproductos[".pagesByType"];
-$tdataproductos[".pages"] = types2pages( my_json_decode( "{\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"print\":[\"print\"],\"search\":[\"search\"]}" ) );
+$tdataproductos[".pages"] = types2pages( my_json_decode( "{\"edit\":[\"edit\"],\"export\":[\"export\"],\"import\":[\"import\"],\"list\":[\"list\"],\"masterlist\":[\"masterlist\"],\"masterprint\":[\"masterprint\"],\"print\":[\"print\"],\"search\":[\"search\"],\"view\":[\"view\"]}" ) );
 $tdataproductos[".originalPages"] = $tdataproductos[".pages"];
-$tdataproductos[".defaultPages"] = my_json_decode( "{\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"print\":\"print\",\"search\":\"search\"}" );
+$tdataproductos[".defaultPages"] = my_json_decode( "{\"edit\":\"edit\",\"export\":\"export\",\"import\":\"import\",\"list\":\"list\",\"masterlist\":\"masterlist\",\"masterprint\":\"masterprint\",\"print\":\"print\",\"search\":\"search\",\"view\":\"view\"}" );
 $tdataproductos[".originalDefaultPages"] = $tdataproductos[".defaultPages"];
 
 //	field labels
@@ -40,6 +40,9 @@ if(mlang_getcurrentlang()=="English")
 	$fieldLabelsproductos["English"]["rgsmrc"] = "Rgsmrc";
 	$fieldToolTipsproductos["English"]["rgsmrc"] = "";
 	$placeHoldersproductos["English"]["rgsmrc"] = "";
+	$fieldLabelsproductos["English"]["Cantidad"] = "Cantidad";
+	$fieldToolTipsproductos["English"]["Cantidad"] = "";
+	$placeHoldersproductos["English"]["Cantidad"] = "";
 	if (count($fieldToolTipsproductos["English"]))
 		$tdataproductos[".isUseToolTips"] = true;
 }
@@ -84,7 +87,7 @@ if( $pages[PAGE_EDIT] ) {
 	$tdataproductos[".edit"] = true;
 	$tdataproductos[".afterEditAction"] = 1;
 	$tdataproductos[".closePopupAfterEdit"] = 1;
-	$tdataproductos[".afterEditActionDetTable"] = "";
+	$tdataproductos[".afterEditActionDetTable"] = "dbo.pedidos";
 }
 
 if( $pages[PAGE_ADD] ) {
@@ -137,13 +140,13 @@ $tdataproductos[".isUseAjaxSuggest"] = true;
 
 
 
-
+																					
 
 $tdataproductos[".ajaxCodeSnippetAdded"] = false;
 
 $tdataproductos[".buttonsAdded"] = false;
 
-$tdataproductos[".addPageEvents"] = false;
+$tdataproductos[".addPageEvents"] = true;
 
 // use timepicker for search panel
 $tdataproductos[".isUseTimeForSearch"] = false;
@@ -162,6 +165,7 @@ $tdataproductos[".googleLikeFields"][] = "Nombre";
 $tdataproductos[".googleLikeFields"][] = "Descripcion";
 $tdataproductos[".googleLikeFields"][] = "Precio";
 $tdataproductos[".googleLikeFields"][] = "rgsmrc";
+$tdataproductos[".googleLikeFields"][] = "Cantidad";
 
 
 
@@ -195,7 +199,7 @@ $tdataproductos[".strOrderBy"] = $tstrOrderBy;
 $tdataproductos[".orderindexes"] = array();
 
 
-$tdataproductos[".sqlHead"] = "SELECT id,  	Nombre,  	Descripcion,  	Precio,  	rgsmrc";
+$tdataproductos[".sqlHead"] = "SELECT id,  	Nombre,  	Descripcion,  	Precio,  	rgsmrc,  	Cantidad";
 $tdataproductos[".sqlFrom"] = "FROM dbo.Productos";
 $tdataproductos[".sqlWhereExpr"] = "";
 $tdataproductos[".sqlTail"] = "";
@@ -234,6 +238,7 @@ $tdataproductos[".arrGroupsPerPage"] = $arrGPP;
 $tdataproductos[".highlightSearchResults"] = true;
 
 $tableKeysproductos = array();
+$tableKeysproductos[] = "id";
 $tdataproductos[".Keys"] = $tableKeysproductos;
 
 
@@ -945,6 +950,145 @@ $tdataproductos[".hideMobileList"] = array();
 
 	$tdataproductos["rgsmrc"] = $fdata;
 		$tdataproductos[".searchableFields"][] = "rgsmrc";
+//	Cantidad
+//	Custom field settings
+	$fdata = array();
+	$fdata["Index"] = 6;
+	$fdata["strName"] = "Cantidad";
+	$fdata["GoodName"] = "Cantidad";
+	$fdata["ownerTable"] = "dbo.Productos";
+	$fdata["Label"] = GetFieldLabel("dbo_Productos","Cantidad");
+	$fdata["FieldType"] = 2;
+
+
+	
+	
+			
+
+		$fdata["strField"] = "Cantidad";
+
+		$fdata["sourceSingle"] = "Cantidad";
+
+	
+		$fdata["isSQLExpression"] = true;
+	$fdata["FullName"] = "Cantidad";
+
+	
+	
+				$fdata["UploadFolder"] = "files";
+
+//  Begin View Formats
+	$fdata["ViewFormats"] = array();
+
+	$vdata = array("ViewFormat" => "");
+
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+	
+		$vdata["NeedEncode"] = true;
+
+	
+		$vdata["truncateText"] = true;
+	$vdata["NumberOfChars"] = 80;
+
+	$fdata["ViewFormats"]["view"] = $vdata;
+//  End View Formats
+
+//	Begin Edit Formats
+	$fdata["EditFormats"] = array();
+
+	$edata = array("EditFormat" => "Text field");
+
+	
+		$edata["weekdayMessage"] = array("message" => "", "messageType" => "Text");
+	$edata["weekdays"] = "[]";
+
+
+	
+	
+
+
+
+	
+	
+	
+	
+			$edata["acceptFileTypesHtml"] = "";
+
+		$edata["maxNumberOfFiles"] = 1;
+
+	
+	
+	
+	
+			$edata["HTML5InuptType"] = "text";
+
+		$edata["EditParams"] = "";
+		
+		$edata["controlWidth"] = 200;
+
+//	Begin validation
+	$edata["validateAs"] = array();
+	$edata["validateAs"]["basicValidate"] = array();
+	$edata["validateAs"]["customMessages"] = array();
+				$edata["validateAs"]["basicValidate"][] = getJsValidatorName("Number");
+							
+	
+//	End validation
+
+	
+			
+	
+	
+	
+	$fdata["EditFormats"]["edit"] = $edata;
+//	End Edit Formats
+
+
+	$fdata["isSeparate"] = false;
+
+
+
+
+// the field's search options settings
+		$fdata["defaultSearchOption"] = "Contains";
+
+			// the default search options list
+				$fdata["searchOptionsList"] = array("Contains", "Equals", "Starts with", "More than", "Less than", "Between", "Empty", NOT_EMPTY);
+// the end of search options settings
+
+
+//Filters settings
+	$fdata["filterTotals"] = 0;
+		$fdata["filterMultiSelect"] = 0;
+			$fdata["filterFormat"] = "Values list";
+		$fdata["showCollapsed"] = false;
+
+		$fdata["sortValueType"] = 0;
+		$fdata["numberOfVisibleItems"] = 10;
+
+		$fdata["filterBy"] = 0;
+
+	
+
+	
+	
+//end of Filters settings
+
+
+	$tdataproductos["Cantidad"] = $fdata;
+		$tdataproductos[".searchableFields"][] = "Cantidad";
 
 
 $tables_data["dbo.Productos"]=&$tdataproductos;
@@ -1019,7 +1163,7 @@ function createSqlQuery_productos()
 {
 $proto0=array();
 $proto0["m_strHead"] = "SELECT";
-$proto0["m_strFieldList"] = "id,  	Nombre,  	Descripcion,  	Precio,  	rgsmrc";
+$proto0["m_strFieldList"] = "id,  	Nombre,  	Descripcion,  	Precio,  	rgsmrc,  	Cantidad";
 $proto0["m_strFrom"] = "FROM dbo.Productos";
 $proto0["m_strWhere"] = "";
 $proto0["m_strOrderBy"] = "";
@@ -1129,41 +1273,56 @@ $proto14["m_alias"] = "";
 $obj = new SQLFieldListItem($proto14);
 
 $proto0["m_fieldlist"][]=$obj;
-$proto0["m_fromlist"] = array();
-												$proto16=array();
-$proto16["m_link"] = "SQLL_MAIN";
-			$proto17=array();
-$proto17["m_strName"] = "dbo.Productos";
-$proto17["m_srcTableName"] = "dbo.Productos";
-$proto17["m_columns"] = array();
-$proto17["m_columns"][] = "id";
-$proto17["m_columns"][] = "Nombre";
-$proto17["m_columns"][] = "Descripcion";
-$proto17["m_columns"][] = "Precio";
-$proto17["m_columns"][] = "rgsmrc";
-$obj = new SQLTable($proto17);
+						$proto16=array();
+			$obj = new SQLField(array(
+	"m_strName" => "Cantidad",
+	"m_strTable" => "dbo.Productos",
+	"m_srcTableName" => "dbo.Productos"
+));
 
-$proto16["m_table"] = $obj;
-$proto16["m_sql"] = "dbo.Productos";
-$proto16["m_alias"] = "";
+$proto16["m_sql"] = "Cantidad";
 $proto16["m_srcTableName"] = "dbo.Productos";
-$proto18=array();
-$proto18["m_sql"] = "";
-$proto18["m_uniontype"] = "SQLL_UNKNOWN";
+$proto16["m_expr"]=$obj;
+$proto16["m_alias"] = "";
+$obj = new SQLFieldListItem($proto16);
+
+$proto0["m_fieldlist"][]=$obj;
+$proto0["m_fromlist"] = array();
+												$proto18=array();
+$proto18["m_link"] = "SQLL_MAIN";
+			$proto19=array();
+$proto19["m_strName"] = "dbo.Productos";
+$proto19["m_srcTableName"] = "dbo.Productos";
+$proto19["m_columns"] = array();
+$proto19["m_columns"][] = "id";
+$proto19["m_columns"][] = "Nombre";
+$proto19["m_columns"][] = "Descripcion";
+$proto19["m_columns"][] = "Precio";
+$proto19["m_columns"][] = "rgsmrc";
+$proto19["m_columns"][] = "Cantidad";
+$obj = new SQLTable($proto19);
+
+$proto18["m_table"] = $obj;
+$proto18["m_sql"] = "dbo.Productos";
+$proto18["m_alias"] = "";
+$proto18["m_srcTableName"] = "dbo.Productos";
+$proto20=array();
+$proto20["m_sql"] = "";
+$proto20["m_uniontype"] = "SQLL_UNKNOWN";
 	$obj = new SQLNonParsed(array(
 	"m_sql" => ""
 ));
 
-$proto18["m_column"]=$obj;
-$proto18["m_contained"] = array();
-$proto18["m_strCase"] = "";
-$proto18["m_havingmode"] = false;
-$proto18["m_inBrackets"] = false;
-$proto18["m_useAlias"] = false;
-$obj = new SQLLogicalExpr($proto18);
+$proto20["m_column"]=$obj;
+$proto20["m_contained"] = array();
+$proto20["m_strCase"] = "";
+$proto20["m_havingmode"] = false;
+$proto20["m_inBrackets"] = false;
+$proto20["m_useAlias"] = false;
+$obj = new SQLLogicalExpr($proto20);
 
-$proto16["m_joinon"] = $obj;
-$obj = new SQLFromListItem($proto16);
+$proto18["m_joinon"] = $obj;
+$obj = new SQLFromListItem($proto18);
 
 $proto0["m_fromlist"][]=$obj;
 $proto0["m_groupby"] = array();
@@ -1179,12 +1338,13 @@ $queryData_productos = createSqlQuery_productos();
 	
 		;
 
-					
+						
 
 $tdataproductos[".sqlquery"] = $queryData_productos;
 
 
 
-$tdataproductos[".hasEvents"] = false;
+include_once(getabspath("include/productos_events.php"));
+$tdataproductos[".hasEvents"] = true;
 
 ?>

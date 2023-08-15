@@ -382,6 +382,8 @@ class Chart
 			return true;
 		if("dbo.Productos" == $this->chrt_array['tables'][0])
 			return true;
+		if("dbo.VE_PEDIDOS" == $this->chrt_array['tables'][0])
+			return true;
 		return false;
 	}
 

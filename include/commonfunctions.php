@@ -207,6 +207,8 @@ function checkTableName($shortTName )
 		return true;
 	if ("productos" == $shortTName )
 		return true;
+	if ("ve_pedidos" == $shortTName )
+		return true;
 	return false;
 }
 
@@ -275,6 +277,15 @@ function GetTablesList($pdfMode = false)
 	if( $tableAvailable ) {
 		$arr[]="dbo.Productos";
 	}
+	$tableAvailable = true;
+	if( $checkPermissions ) {
+		$strPerm = GetUserPermissions("dbo.VE_PEDIDOS");
+		$tableAvailable = ( strpos($strPerm, "P") !== false
+			|| $pdfMode && strpos($strPerm, "S") !== false );
+	}
+	if( $tableAvailable ) {
+		$arr[]="dbo.VE_PEDIDOS";
+	}
 	return $arr;
 }
 
@@ -286,6 +297,7 @@ function GetTablesListWithoutSecurity()
 	$arr = array();
 	$arr[]="dbo.pedidos";
 	$arr[]="dbo.Productos";
+	$arr[]="dbo.VE_PEDIDOS";
 	return $arr;
 }
 
@@ -914,6 +926,12 @@ function GetUserPermissionsStatic( $table )
 		return "ADESPI".$extraPerm;
 	}
 	if( $table=="dbo.Productos" )
+	{
+//	default permissions
+		// grant all by default
+		return "ADESPI".$extraPerm;
+	}
+	if( $table=="dbo.VE_PEDIDOS" )
 	{
 //	default permissions
 		// grant all by default

@@ -49,6 +49,8 @@ class tDAL
 {
 	var $tblTallerPedidosatTHINKPADIDBDXSQ_dbo_pedidos;
 	var $tblTallerPedidosatTHINKPADIDBDXSQ_dbo_Productos;
+	var $tblTallerPedidosatTHINKPADIDBDXSQ_dbo_VE_PEDIDOR;
+	var $tblTallerPedidosatTHINKPADIDBDXSQ_dbo_VE_PEDIDOS;
 	var $lstTables;
 	var $Table = array();
 
@@ -58,6 +60,8 @@ class tDAL
 			return;
 		$this->lstTables[] = array("name" => "pedidos", "varname" => "TallerPedidosatTHINKPADIDBDXSQ_dbo_pedidos", "altvarname" => "pedidos", "connId" => "TallerPedidosatTHINKPADIDBDXSQ", "schema" => "dbo", "connName" => "Taller_Pedidos at THINKPAD-IDB");
 		$this->lstTables[] = array("name" => "Productos", "varname" => "TallerPedidosatTHINKPADIDBDXSQ_dbo_Productos", "altvarname" => "Productos", "connId" => "TallerPedidosatTHINKPADIDBDXSQ", "schema" => "dbo", "connName" => "Taller_Pedidos at THINKPAD-IDB");
+		$this->lstTables[] = array("name" => "VE_PEDIDOR", "varname" => "TallerPedidosatTHINKPADIDBDXSQ_dbo_VE_PEDIDOR", "altvarname" => "VE_PEDIDOR", "connId" => "TallerPedidosatTHINKPADIDBDXSQ", "schema" => "dbo", "connName" => "Taller_Pedidos at THINKPAD-IDB");
+		$this->lstTables[] = array("name" => "VE_PEDIDOS", "varname" => "TallerPedidosatTHINKPADIDBDXSQ_dbo_VE_PEDIDOS", "altvarname" => "VE_PEDIDOS", "connId" => "TallerPedidosatTHINKPADIDBDXSQ", "schema" => "dbo", "connName" => "Taller_Pedidos at THINKPAD-IDB");
 	}
 
 	/**

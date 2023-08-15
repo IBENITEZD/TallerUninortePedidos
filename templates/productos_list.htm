@@ -258,6 +258,19 @@
 								<span class="rnr-searchcontrol">{$searchcontrol1_Descripcion}</span>
 						</div>
 		{END searchCtrlBlock_Descripcion}
+																{BEGIN searchCtrlBlock_Cantidad}
+
+
+		<div class="form-group srchPanelRow {$filterRow_class_Cantidad}" {$filterRow_attrs_Cantidad}>
+			<label>{$label dbo_Productos Cantidad }</label>
+
+							{$delCtrlButt}
+			
+								<span class="rnr-searchtype">{$searchtype_Cantidad}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol_Cantidad}</span>
+								<span class="rnr-searchcontrol">{$searchcontrol1_Cantidad}</span>
+						</div>
+		{END searchCtrlBlock_Cantidad}
 																{BEGIN searchCtrlBlock_rgsmrc}
 
 
@@ -467,7 +480,13 @@
 	
 ">
 		{BEGIN firstAboveGridCell}
-				{END firstAboveGridCell}	
+		 
+		<span data-itemtype="custom_button" data-itemid="custom_button" {$item_custom_button} data-pageid="{$pageid}" data-small data-button-item>
+	<a type="button" title="" class="btn btn-warning   
+	" id="Seleccionar_Producto" href="javascript:void(0)" typeid="ib" >
+							Ver Pedido			</a>
+</span>
+			{END firstAboveGridCell}	
 	</div>			 
 				<div 
 	data-cellId="above-grid_c2" data-pageid="{$pageid}"	{$cell_above-grid_c2}
@@ -514,6 +533,17 @@
 		</div>
 	</div>
 		
+		 
+	<div class="row">
+		<div class="col-md-4">
+			&nbsp;
+		</div>
+		<div class="col-md-8">
+			<label style="color: gray;" for="printSelection{$id}">
+			<input name="printScope" disabled="disabled" id="printSelection{$id}" type="radio" >
+			Print selected			</label>
+		</div>
+	</div>
 	</div>
 				 
 					</li>
@@ -598,6 +628,9 @@
 			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="rgsmrc"]:before {
 		content: "{$label dbo_Productos rgsmrc}";
 	}
+			[data-pageid="{$pageid}"][data-itemtype="grid_field"][data-field="Cantidad"]:before {
+		content: "{$label dbo_Productos Cantidad}";
+	}
 	}
 </style>
 <table data-location="grid" id="form_grid_{$pageid}" data-makeup="leftbar" {$form_grid} data-pageid="{$pageid}" class=" table table-striped table-hover r-horizontal-grid  r-flexgrid rnr-b-grid rnr-gridtable"
@@ -612,28 +645,6 @@
 					
 								r-gridrow
 							">
-									{BEGIN cellblock_grid_headcell_checkbox}
-	<th
-	
-	{$cell_grid_headcell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_headcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="productos_list"	
-		data-checkbox-cell
-	>
-
-	 
-		{BEGIN checkbox_column}
-<span data-itemtype="grid_checkbox_head" data-itemid="grid_checkbox_head" {$item_grid_checkbox_head} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkboxheader_attrs}>
-</span>
-{END checkbox_column}
-	
-	</th>
-	{END cellblock_grid_headcell_checkbox}
 									{BEGIN cellblock_grid_headcell_details}
 	<th
 	
@@ -643,7 +654,8 @@
 		 r-ori-vert			"
 
 	
-	data-cellId="grid_headcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	data-cellId="grid_headcell_details" data-pageid="{$pageid}" data-record-id="{$recId}"		data-control-cell
+	
 	>
 
 	
@@ -819,6 +831,40 @@
 	
 	</th>
 	{END cellblock_grid_headcell_field4}
+									{BEGIN cellblock_grid_headcell_field5}
+	<th
+	
+	{$cell_grid_headcell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Cantidad_class}	"
+
+			data-field="Cantidad"
+	
+	data-cellId="grid_headcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Cantidad_fieldheadercolumn}
+	{BEGIN Cantidad_fieldheader}
+<span 
+	data-itemtype="grid_field_label" data-itemid="grid_field_label" {$item_grid_field_label} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Cantidad" data-fieldname="Cantidad" 
+
+			{$Cantidad_orderlinkattrs}
+	
+	
+	>
+	<span class="text-label">
+		<span>{$label dbo_Productos Cantidad }</span>
+					{$arrow_icon_Cantidad}
+			</span>
+	</span>
+	{END Cantidad_fieldheader}
+{END Cantidad_fieldheadercolumn}
+
+	
+	</th>
+	{END cellblock_grid_headcell_field5}
 							</tr>
 																				
 					{END grid_header}
@@ -830,32 +876,7 @@
 				
 								r-gridrow
 							">
-									{BEGIN cellblock_grid_cell_checkbox}
-	<td
-	
-	{$cell_grid_cell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_cell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"		data-control-cell
-	
-		data-checkbox-cell
-	>
-
-	 
-		{BEGIN checkbox_column}
-<span data-itemtype="grid_checkbox" data-itemid="grid_checkbox" {$item_grid_checkbox} data-pageid="{$pageid}" data-record-id="{$recId}" >
-	<input type="checkbox" {$checkbox_attrs}
-		>
-</span>	
-{END checkbox_column}
-	
-	</td>
-	{END cellblock_grid_cell_checkbox}
-									{BEGIN cellblock_grid_cell_details}
-	<td
+										<td
 	
 	{$cell_grid_cell_details}
 	{$recordattrs}
@@ -863,33 +884,38 @@
 					"
 
 	
-	data-cellId="grid_cell_details" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="productos_list"		data-control-cell
-	
+	data-cellId="grid_cell_details" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="productos_list"	
 	>
 
 	 
-			 
+		<span data-itemtype="custom_button" data-itemid="custom_button1" {$item_custom_button1} data-pageid="{$pageid}" data-record-id="{$recId}" data-small data-button-item>
+	<a type="button" title="Seleccionar producto" class="btn btn-success  btn-xs 
+	" id="New_Button" href="javascript:void(0)" typeid="ib" >
+					<span class="fa fa-shopping-cart"></span>
+							Pedir			</a>
+</span>
+	 
 		
-	{BEGIN dtables_link}
-				<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
-		<a 
-			{$pedidos_link_attrs} 
-			class="{$dtables_link_class} details-badge badge pedidos_badge" 
-			title="Show details"
-						
-		>
-							<span class="glyphicon glyphicon-th-list"></span>
-									<span class="{$pedidos_cntspan_class}" {$pedidos_childnumber_attr}>
-				{$pedidos_childnumber}				
-			</span>
-		</a>
-		</span>
-	{END dtables_link}
+		
+	{BEGIN pedidos_dtable_link}
+	<span data-itemtype="grid_details_link" data-itemid="grid_details_link" {$item_grid_details_link} data-pageid="{$pageid}" data-record-id="{$recId}">
+	<a  {$pedidos_link_attrs} data-short-details="pedidos"
+		class="{$pedidos_dlink_class}" 
+		title="{$caption dbo_pedidos }"			>
+								
+									{BEGIN pedidos_childcount}
+				<span class="details-badge badge pedidos_badge" {$pedidos_childnumber_attr}>
+					{$pedidos_childnumber}				
+				</span>
+				{END pedidos_childcount}
+						</a>
+	</span>
+	{END pedidos_dtable_link}
+
 
 	
 	</td>
-	{END cellblock_grid_cell_details}
-									{BEGIN cellblock_grid_cell_field}
+										{BEGIN cellblock_grid_cell_field}
 	<td
 	
 	{$cell_grid_cell_field}
@@ -994,6 +1020,27 @@
 {END rgsmrc_fieldcolumn}	
 	</td>
 	{END cellblock_grid_cell_field4}
+									{BEGIN cellblock_grid_cell_field5}
+	<td
+	
+	{$cell_grid_cell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Cantidad_class}	"
+
+			data-field="Cantidad"
+	
+	data-cellId="grid_cell_field5" data-pageid="{$pageid}" data-record-id="{$recId}"	
+	>
+
+	 
+		{BEGIN Cantidad_fieldcolumn}
+<span data-itemtype="grid_field" data-itemid="grid_field" {$item_grid_field} data-pageid="{$pageid}" data-record-id="{$recId}" data-field="Cantidad" data-fieldname="Cantidad" data-default-width >
+{$Cantidad_value}
+</span>
+{END Cantidad_fieldcolumn}	
+	</td>
+	{END cellblock_grid_cell_field5}
 							</tr>
 											<tr {$rowattrs} {$row_grid_2} class="{$rowclass}
 				
@@ -1010,15 +1057,6 @@
 	data-cellId="grid_cell_dpreview" data-pageid="{$pageid}" data-record-id="{$recId}"	
 	>
 
-	 
-			<div data-itemtype="details_preview" data-itemid="details_preview" {$item_details_preview} data-pageid="{$pageid}" data-record-id="{$recId}" 
-	data-orders="pedidos"
-			data-details-pedidos	>
-		<span data-details-inside data-short-table="pedidos">
-			</span>
-		<div data-details-preview>
-	</div>
-</div>
 	
 	</td>
 	{END cellblock_grid_cell_dpreview}
@@ -1033,21 +1071,6 @@
 					
 								r-gridrow
 							">
-									{BEGIN cellblock_grid_footcell_checkbox}
-	<td
-	
-	{$cell_grid_footcell_checkbox}
-	{$recordattrs}
-	class="
-		 r-ori-vert			"
-
-	
-	data-cellId="grid_footcell_checkbox" data-pageid="{$pageid}" data-record-id="{$recId}"	
-	>
-
-	
-	</td>
-	{END cellblock_grid_footcell_checkbox}
 									{BEGIN cellblock_grid_footcell_details}
 	<td
 	
@@ -1138,6 +1161,21 @@
 	
 	</td>
 	{END cellblock_grid_footcell_field4}
+									{BEGIN cellblock_grid_footcell_field5}
+	<td
+	
+	{$cell_grid_footcell_field5}
+	{$recordattrs}
+	class="
+		 r-ori-vert		 {$Cantidad_class}	"
+
+	
+	data-cellId="grid_footcell_field5" data-pageid="{$pageid}" data-record-id="{$recId}" data-page="productos_list"	
+	>
+
+	
+	</td>
+	{END cellblock_grid_footcell_field5}
 							</tr>
 					
 					</tfoot>

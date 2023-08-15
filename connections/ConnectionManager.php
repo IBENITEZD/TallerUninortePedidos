@@ -136,17 +136,21 @@ class ConnectionManager extends ConnectionManager_Base
 		$data["DBPath"] = "db"; //currently unused
 		$data["useServerMapPath"] = 1; //currently unused
 
-		
-		//	Don't change any of these lines manually!
-		//	Use 'Server database connections' feature on the Output screen in PHPRunner instead.
-		$data["connInfo"][0] = "THINKPAD-IDB\\DXSQL";
-		$data["connInfo"][1] = "DoxaSeg";
-		$data["connInfo"][2] = "DoxaSistemasLtda";
-		$data["connInfo"][3] = "Taller_Pedidos";
-		$data["connInfo"][4] = "";
-		$data["connInfo"][5] = ""; //currently unused
-		$data["connInfo"][6] = ""; //currently unused
-		$data["ODBCString"] = "Provider=MSOLEDBSQL;Server=THINKPAD-IDB\\DXSQL;Uid=DoxaSeg;Pwd=DoxaSistemasLtda;Database=Taller_Pedidos";
+$host="STORAGEADJUNTOS";
+$user="DoxaSeg";
+$pwd="DoxaSistemasLtda";
+$dbname="DxTDatos";
+$ODBCString = "Provider=SQLNCLI;Server=STORAGEADJUNTOS;Uid=DoxaSeg;Pwd=DoxaSistemasLtda;Database=DxTDatos";
+unset($_SESSION['entorno']);
+if(file_exists('./dxtdatos/config_db.php'))
+  include './dxtdatos/config_db.php';
+$_SESSION["bdatosactual"]= $sys_dbname;
+$data["connInfo"][0] = $host;
+$data["connInfo"][1] = $user;
+$data["connInfo"][2] = $pwd;
+$data["connInfo"][3] = $dbname;
+$data["ODBCString"] = $ODBCString;
+;
 		// encription set
 		$data["EncryptInfo"] = array();
 		$data["EncryptInfo"]["mode"] = 0;

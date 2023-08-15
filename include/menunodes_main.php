@@ -57,7 +57,7 @@
 	$menuNodes[] = $menuNode;
 	$menuNode = array();
 	$menuNode["id"] = "3";
-	$menuNode["name"] = "";
+	$menuNode["name"] = "Ver Pedidos";
 	$menuNode["href"] = "mypage.htm";
 	$menuNode["type"] = "Leaf";
 	$menuNode["table"] = "dbo.VE_PEDIDOS";
@@ -76,7 +76,7 @@
 
 		$menuNode["color"] = "";
 
-	$menuNode["title"] = "VE PEDIDOS";
+	$menuNode["title"] = "Ver Pedidos";
 
 
 
